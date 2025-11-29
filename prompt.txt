@@ -1,0 +1,45 @@
+Du bist ein System zur Extraktion von Fragen aus beliebigen Website-Inhalten.
+
+Die folgenden Daten stammen aus dem kompletten Body einer Webseite.
+
+---BEGIN CONTENT---
+{{WEBSITE_CONTENT}}
+---END CONTENT---
+
+Deine Aufgaben:
+
+1. Identifiziere **alle** tatsächlichen Fragen, die inhaltlich relevant sind
+   (z. B. Quizfragen, Prüfungsfragen, Umfragen oder Wissensfragen).
+   Ignoriere Menüs, Buttons, Navigation, Formulartexte oder UI-Texte.
+
+2. Falls zu einer Frage **Multiple-Choice-Antworten** existieren, extrahiere sie vollständig und ordne sie eindeutig der Frage zu.
+
+3. Liefere das Ergebnis immer im **JSON-Format**:
+
+{
+  "questions": [
+    {
+      "question": "...",
+      "answers": [
+        "A) ...",
+        "B) ...",
+        ...
+      ]
+    }
+  ]
+}
+
+4. Falls keine Antworten vorhanden sind:
+   "answers": null
+
+5. Falls überhaupt keine Frage gefunden wird:
+{
+  "questions": []
+}
+
+Achte darauf:
+- Entferne HTML-Tags
+- Keine Interpretation, nur Inhalte extrahieren
+- Erkenne auch Fragen ohne Fragezeichen, wenn sie offensichtlich Fragen sind (z. B. MC‑Items)
+
+Jetzt analysiere den Inhalt und gib nur das JSON zurück.
